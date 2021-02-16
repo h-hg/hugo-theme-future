@@ -1,0 +1,7 @@
+<div class="video-iframe">
+  {{- if .IsNamedParams -}}
+    <iframe src="{{ .Get `src` }}" frameborder="0" allowfullscreen="true"></iframe>
+  {{- else -}}  
+    <iframe src="{{ .Get 0 }}" frameborder="0" allowfullscreen="true"></iframe>
+  {{- end -}}
+</div>
