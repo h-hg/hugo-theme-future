@@ -1,0 +1,18 @@
+{{ if .Site.IsServer }}
+  {{ $script := resources.Get "js/color-scheme.js" }}
+  <script src="{{ $script.RelPermalink }}"></script>
+{{ else }}
+  {{ $scripts := resources.Get "js/color-scheme.js" | minify | fingerprint }}
+  <script src="{{ $scripts.RelPermalink }}" integrity="{{ $scripts.Data.Integrity }}"></script>
+{{ end }}
+
+{{/* custom javascript */}}
+{{ range .Site.Params.Style.Custom.js }}
+  {{ if .Site.IsServer }}
+    {{ $scripts := resources.Get . }}
+    <script src="{{ $scripts.RelPermalink }}" crossorigin="anonymous"></script>
+  {{ else }}
+    {{ $scripts := resources.Get . | minify | fingerprint }}
+    <script src="{{ $scripts.RelPermalink }}" integrity="{{ $scripts.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ end }}
+{{ end }}

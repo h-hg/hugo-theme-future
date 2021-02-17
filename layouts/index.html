@@ -1,0 +1,38 @@
+{{- define "main" -}}
+  <section class="container centered">
+    <div class="profile">
+      {{- if isset .Site.Params.Profile "avatar"}}
+        <div class="avatar">
+          <img src="{{ .Site.Params.Profile.avatar | relURL }}">
+        </div>
+      {{- end -}}
+      {{- if isset .Site.Params.Profile "author" -}}
+        <h1>{{- .Site.Params.Profile.author -}}</h1>
+      {{- end -}}
+      {{- if isset .Site.Params.Profile "info" -}}
+        <h2>{{- .Site.Params.Profile.info -}}</h2>
+      {{- end -}}
+      {{- with .Site.Params.Profile.Social.medium -}}
+        <ul>
+          {{- range sort . "weight" -}}
+            {{- if gt .weight 0 -}}
+              {{- if .icon -}}
+                <li>
+                  <a href="{{- .url | safeURL -}}" target="_blank" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} {{ if .type }}type="{{ .type }}"{{ end }}>
+                    <i class="{{- .icon -}}" aria-hidden="true"></i>
+                  </a>
+                </li>
+              {{- else -}}
+                <li>
+                  <a href="{{- .url | safeURL -}}" target="_blank" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} >
+                    {{- .name -}}
+                  </a>
+                </li>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        </ul>
+      {{- end -}}
+    </div>
+  </section>
+{{- end -}}

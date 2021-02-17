@@ -1,0 +1,24 @@
+{{- if or (.Params.math) (.Site.Params.Posts.Math.enable) -}}
+  {{- if eq .Site.Params.Posts.Math.type "katex" -}}
+    {{- partial "script/katex.html" . -}}
+
+  {{- else if eq .Site.Params.Posts.Math.type "mathjax" -}}
+    {{- partial "script/mathjax.html" . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if or (.Params.mermaid) (.Site.Params.Posts.Mermaid.enable) -}}
+  {{- partial "script/mermaid.html" . -}}
+{{- end -}}
+
+{{- if or (.Params.pseudocode) (.Site.Params.Posts.Pseudocode.enable) -}}
+  {{- partial "script/pseudocode.html" . -}}
+{{- end -}}
+
+{{- if or (.Params.twemoji) (.Site.Params.Posts.Twemoji.enable) -}}
+  {{- partial "script/twemoji.html" . -}}
+{{- end -}}
+
+{{- if or (.Params.wavedrom) (.Site.Params.Posts.Wavedrom.enable) -}}
+  {{- partial "script/wavedrom.html" . -}}
+{{- end -}}

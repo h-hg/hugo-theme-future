@@ -1,0 +1,59 @@
+{{ if .Site.IsServer }}
+  {{ $cssOpts := (dict "targetPath" "css/all.css" "enableSourceMap" true ) }}
+  {{ $styles := resources.Get "scss/all.scss" | resources.ExecuteAsTemplate "style.all.css" . | toCSS $cssOpts }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+{{ else }}
+  {{ $cssOpts := (dict "targetPath" "css/all.css" ) }}
+  {{ $styles := resources.Get "scss/all.scss" | resources.ExecuteAsTemplate "style.all.css" . | toCSS $cssOpts | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+{{ end }}
+
+
+{{ if .Site.Params.Style.rtl }}
+  {{ if .Site.IsServer }}
+    {{ $cssOpts := (dict "targetPath" "css/all-rtl.css" "enableSourceMap" true ) }}
+    {{ $styles := resources.Get "scss/all-rtl.scss" | resources.ExecuteAsTemplate "style.all-rtl.css" . | toCSS $cssOpts }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+  {{ else }}
+    {{ $cssOpts := (dict "targetPath" "css/all-rtl.css" ) }}
+    {{ $styles := resources.Get "scss/all-rtl.scss" | resources.ExecuteAsTemplate "style.all-rtl.css" . | toCSS $cssOpts | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+  {{ end }}
+{{ end }}
+
+{{ if  or (eq .Site.Params.Style.colorScheme "auto") (eq .Site.Params.Style.colorScheme "dark") }}
+  {{ if .Site.IsServer }}
+    {{ $cssOpts := (dict "targetPath" "css/all-dark.css" "enableSourceMap" true ) }}
+    {{ $styles := resources.Get "scss/all-dark.scss" | resources.ExecuteAsTemplate "style.all-dark.css" . | toCSS $cssOpts }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+  {{ else }}
+    {{ $cssOpts := (dict "targetPath" "css/all-dark.css" ) }}
+    {{ $styles := resources.Get "scss/all-dark.scss" | resources.ExecuteAsTemplate "style.all-dark.css" . | toCSS $cssOpts | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+  {{ end }}
+{{ end }}
+
+
+{{/* custom css */}}
+{{ range .Site.Params.Style.Custom.css }}
+  {{ if .Site.IsServer }}
+    {{ $styles := resources.Get . }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" crossorigin="anonymous" media="screen">
+  {{ else }}
+    {{ $styles := resources.Get . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+  {{ end }}
+{{ end }}
+
+{{/* custom scss */}}
+{{ range .Site.Params.Style.Custom.scss }}
+  {{/* We don't change the targetPath to because it's transparent to users */}}
+  {{ if .Site.IsServer }}
+    {{ $cssOpts := (dict "enableSourceMap" true ) }}
+    {{ $styles := resources.Get . | toCSS $cssOpts }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+  {{ else }}
+    {{ $styles := resources.Get . | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+  {{ end }}
+{{ end }}

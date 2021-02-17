@@ -1,0 +1,16 @@
+{{- partial "link/fontawesome.html" . -}}
+
+{{- if or (.Params.math) (.Site.Params.Posts.Math.enable) -}}
+  {{- if eq .Site.Params.Posts.Math.type "katex" -}}
+    {{- partial "link/katex.html" . -}}
+
+  {{- else if eq .Site.Params.Posts.Math.type "mathjax" -}}
+    {{- partial "link/mathjax.html" . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if or (.Params.pseudocode) (.Site.Params.Posts.Pseudocode.enable) -}}
+  {{- partial "link/pseudocode.html" . -}}
+{{- end -}}
+
+{{- partial "link/theme-style.html" . -}}

@@ -1,0 +1,17 @@
+{{ if not .Site.Params.hideFooter | default false }}
+  <footer class="footer">
+    <section class="container">
+      ©
+      {{ if (and (.Site.Params.Footer.since) (lt .Site.Params.Footer.since now.Year)) }}
+        {{ .Site.Params.Footer.since }} -
+      {{ end }}
+      {{ now.Year }}
+      {{ with .Site.Params.Profile.author }}
+        {{ . }}
+      {{ end }}
+
+      {{ i18n "powered_by" }} <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/h-hg/future/">Future</a>.
+
+    </section>
+  </footer>
+{{ end }}

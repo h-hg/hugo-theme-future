@@ -1,3 +1,181 @@
 baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "en"
+defaultContentLanguage = "en"
+# The website title
+title = "Hugo Theme Future"
+
+theme = "future"
+themesDir = "../.."
+
+# enableEmoji = true # https://gohugo.io/getting-started/configuration/
+
+[params]
+  version = "1.0.X"
+
+  [params.header]
+    logo = ""
+    title = ""
+  [params.profile]
+    avatar = "images/avatar.jpg"
+    author = "Hunter Huang"
+    info = "A CS student"
+    [params.profile.social]
+      enable = true
+      [[params.profile.social.medium]]
+        name = "Github"
+        icon = "fa fa-github"
+        weight = -1
+        url = "https://github.com/XXX/"
+      [[params.profile.social.medium]]
+        name = "Gitlab"
+        icon = "fa fa-gitlab"
+        weight = 2
+        url = "https://gitlab.com/XXX/"
+      [[params.profile.social.medium]]
+        name = "Twitter"
+        icon = "fa fa-twitter"
+        weight = 3
+        url = "https://twitter.com/XXX/"
+      [[params.profile.social.medium]]
+        name = "LinkedIn"
+        icon = "fa fa-linkedin"
+        weight = 4
+        url = "https://www.linkedin.com/in/XXX/"
+      [[params.profile.social.medium]]
+        name = "Medium"
+        icon = "fa fa-medium"
+        weight = 5
+        url = "https://medium.com/@XXX"
+      [[params.profile.social.medium]]
+        name = "RSS"
+        icon = "fa fa-rss"
+        weight = 6
+        url = "https://myhugosite.com/index.xml"
+        rel = "alternate"
+        type = "application/rss+xml"
+  [params.footer]
+    since = 2020
+    # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
+    [params.footer.beian]
+      enable = false
+      icp = ""
+      # The digit in the num of gongan beian.
+      gongan_id = ""
+      # The full num of gongan beian.
+      gongan_num = ""
+      # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+      gongan_icon_url = ""
+  [params.posts]
+    [params.posts.codeblock]
+      copyButton = true
+      # Maximum number of rows to display
+      maxShownLines = 10
+      lightTheme = ""
+      darkTheme = ""
+    [params.posts.math]
+      enable = false
+      # katex or mathjax
+      type = "katex"
+      # default block delimiter is $$ ... $$ and \\[ ... \\]
+      blockLeftDelimiter = ""
+      blockRightDelimiter = ""
+      # default inline delimiter is $ ... $ and \\( ... \\)
+      inlineLeftDelimiter = ""
+      inlineRightDelimiter = ""
+      [params.posts.math.katex]
+        # KaTeX extension copy_tex
+        copyTex = true
+        # KaTeX extension mhchem
+        mhchem = true
+      [params.posts.math.mathjax]
+
+    [params.posts.pseudocode]
+      enable = false
+    [params.posts.wavedrom]
+      enable = false
+      lightTheme = ""
+      darkTheme = ""
+    [params.posts.mermaid]
+      enable = false
+      lightTheme = ""
+      darkTheme = ""
+    # twitter emoji
+    [params.posts.twemoji]
+      enable = false
+    # reading process
+    [params.posts.progress]
+      enable = true
+    [params.posts.back2top]
+      enable = true
+    # related posts
+    [params.posts.related]
+      enable = true
+    # the license of posts
+    [params.posts.license]
+      enable = false
+      # information of license, support HTML
+      type = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    # share the posts
+    [params.posts.share]
+      enable = false
+      [[params.posts.share.medium]]
+        name = "wechat"
+        icon = ""
+        weight = 1
+    [params.posts.reward]
+      enable = false
+      [[params.posts.reward.platform]]
+        name = "wechat"
+        icon = ""
+        qrcode = ""
+        weight = 1
+      [[params.posts.reward.platform]]
+        name = "alipay"
+        icon = ""
+        qrcode = ""
+        weight = 2
+      [[params.posts.reward.platform]]
+        name = "paypal"
+        icon = ""
+        url = ""
+        weight = 3
+      [[params.posts.reward.platform]]
+        name = "bitcoin"
+        icon = ""
+        url = ""
+        weight = 4
+      [[params.posts.reward.platform]]
+        name = "yunshanfu"
+        icon = ""
+        url = ""
+        weight = 5
+
+    [params.posts.commento]
+      enable = false
+      type = ""
+  [params.list]
+    # special amount of posts in each list page
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "01-02"
+    # amount of RSS pages
+    rss = 10
+
+  [params.style]
+    rtl = false
+    # Specify light/dark color scheme
+    # Supported values:
+    # "auto" (use preference set by browser)
+    # "dark" (dark background, light foreground)
+    # "light" (light background, dark foreground) (default)
+    colorScheme = "auto"
+    [params.style.custom]
+      scss = []
+      css = []
+      js = []
+
+[languages]
+  [languages.en]
+    languageName = "English"
+  [languages.zh-CN]
+    languageName = "简体中文"
