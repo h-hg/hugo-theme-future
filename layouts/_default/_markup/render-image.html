@@ -1,0 +1,12 @@
+{{ $figcap := or .Title }}
+
+{{- if $figcap -}}
+  <figure>
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" title="{{ .Title }}">
+    <figcaption class="img-caption">
+      <h4>{{- $figcap | safeHTML -}}</h4>
+    </figcaption>
+  </figure>
+{{- else -}}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+{{- end -}}

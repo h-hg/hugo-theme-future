@@ -1,4 +1,4 @@
-<div class="bilibili">
+<div class="video-iframe">
   {{- if .IsNamedParams -}}
     <iframe src="//player.bilibili.com/player.html?bvid={{ .Get `id` }}&page={{ .Get `p` | default 1 }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
   {{- else -}}
