@@ -1,7 +1,15 @@
-<div class="video-iframe">
-  {{- if .IsNamedParams -}}
-    <iframe src="//player.bilibili.com/player.html?bvid={{ .Get `id` }}&page={{ .Get `p` | default 1 }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+{{/* id p */}}
+
+{{ $id := "" }}
+{{ $p := 1 }}
+{{- if .IsNamedParams -}}
+  {{ $id = .Get "id" }}
+  {{ $p = (.Get `p` | default 1) }}
   {{- else -}}
-    <iframe src="//player.bilibili.com/player.html?bvid={{ .Get 0 }}&page={{ .Get 1 | default 1 }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-  {{- end -}}
+  {{ $id = .Get 0 }}
+  {{ $p = (.Get 1 | default 1) }}
+{{- end -}}
+
+<div class="video-iframe">
+  <iframe src="//player.bilibili.com/player.html?bvid={{ $id }}&page={{ $p }}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </div>

@@ -1,3 +1,7 @@
+{{- if or (.Params.caniuse) (.Site.Params.Posts.caniuse.enable) -}}
+  {{- partial "script/caniuse.html" . -}}
+{{- end -}}
+
 {{- if or (.Params.math) (.Site.Params.Posts.Math.enable) -}}
   {{- if eq .Site.Params.Posts.Math.type "katex" -}}
     {{- partial "script/katex.html" . -}}

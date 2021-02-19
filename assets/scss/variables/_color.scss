@@ -1,0 +1,33 @@
+/*
+ * bg: background
+ * fg: foreground
+ */
+
+// background
+$bg-color: #ffffff !default;
+$bg-dark-1:#cccccc;
+$bg-dark-2:#c0c0c0;
+$bg-dark-3:#999999;
+$bg-dark-4:#808080;
+$bg-dark-5:#666666;
+$bg-dark-6:#333333;
+
+// plain text color
+$fg-color: #161209 !default;
+
+// headline text
+$headline-color: $fg-color;
+
+// link text
+$link-color: #2d96bd !default;
+$link-hover-color: #ef3982;
+
+// inline code text
+$inline-code-color: #e74c3c;
+
+// Colors dark
+$bg-color-dark: #212121 !default;
+$fg-color-dark: #dadada !default;
+$alt-bg-color-dark: #424242 !default;
+$alt-fg-color-dark: #dadada !default;
+$link-color-dark: #42a5f5 !default;

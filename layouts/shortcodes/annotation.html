@@ -1,7 +1,5 @@
 {{/* type title open */}}
 
-{{- $inner := .Inner | .Page.RenderString -}}
-
 {{- $iconMap := dict "note" "fas fa-pencil-alt fa-fw" -}}
 {{- $iconMap  = dict "abstract" "fas fa-list-ul fa-fw" | merge $iconMap -}}
 {{- $iconMap  = dict "info" "fas fa-info-circle fa-fw" | merge $iconMap -}}
@@ -16,32 +14,31 @@
 {{- $iconMap  = dict "quote" "fas fa-quote-right fa-fw" | merge $iconMap -}}
 {{- $iconDetails := "fas fa-angle-down fa-fw" -}}
 
-{{- if .IsNamedParams -}}
-  {{- $type := .Get "type" | default "note" -}}
-  <div class="details annotation {{ $type }}{{ if .Get `open` | eq false }} collapse{{ end }}" onclick="this.classList.toggle('collapse');">
-    <div class="summary" {{- if not (.Get `title`) -}}style="display:none"{{- end -}}>
-      <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}"></i>
-      <span class="title">
-        {{ .Get "title" | default (T $type) }}
-      </span>
-      <i class="details-icon {{ $iconDetails }}"></i>
-    </div>
-    <div class="content">
-      {{- $inner -}}
-    </div>
+{{- $inner := .Inner | .Page.RenderString -}}
+{{ $type := "note" }}
+{{ $title := "" }}
+{{ $open := true }}
+
+{{ if .IsNamedParams }}
+  {{ $type = .Get "type" | default $type }}
+  {{ $title := .Get "title" | default $title }}
+  {{ $open = .Get "open" | default $open }}
+{{ else }}
+  {{ $type = .Get 0 | default $type }}
+  {{ $title = .Get 1 | default $title }}
+  {{ $open = .Get 2 | default $open }}
+{{ end }}
+
+
+<div class="details annotation {{ $type }}{{ if eq $open false }} collapse{{ end }}" onclick="this.classList.toggle('collapse');">
+  <div class="summary" {{ if eq $title "" }}style="display:none"{{ end }}>
+    <i class="icon {{ index $iconMap $type }}"></i>
+    <span class="title">
+      {{ .Get "title" }}
+    </span>
+    <i class="details-icon {{ $iconDetails }}"></i>
   </div>
-{{- else -}}
-  {{- $type := .Get 0 | default "note" -}}
-  <div class="details annotation {{ $type }}{{ if .Get 2 | eq false }} collapse{{ end }}" onclick="this.classList.toggle('collapse');">
-    <div class="summary" {{- if not (.Get 1) -}}style="display:none"{{- end -}}>
-      <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}"></i>
-      <span class="title">
-        {{ .Get 1 | default (T $type) }}
-      </span>
-      <i class="details-icon {{ $iconDetails }}"></i>
-    </div>
-    <div class="content">
-      {{- $inner -}}
-    </div>
+  <div class="content">
+    {{- $inner -}}
   </div>
-{{- end -}}
+</div>

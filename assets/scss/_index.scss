@@ -1,0 +1,26 @@
+.profile {
+  text-align: center;
+  
+  .avatar img {
+    // width: 20rem;
+    // height: auto;
+    border-radius: 50%;
+    border: 1px solid #333; // shadow
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 0;
+    li {
+      display: inline-block;
+      a {
+        i {
+
+        }
+      }
+    }
+  }
+
+}

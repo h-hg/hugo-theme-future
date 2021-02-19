@@ -1,7 +1,12 @@
+{{/* src */}}
+
+{{ $src := "" }}
+{{- if .IsNamedParams -}}
+  {{$src = .Get `src` }}
+{{- else -}}
+  {{ $src = .Get 0 }}
+{{- end -}}
+
 <div class="video-iframe">
-  {{- if .IsNamedParams -}}
-    <iframe src="{{ .Get `src` }}" frameborder="0" allowfullscreen="true"></iframe>
-  {{- else -}}  
-    <iframe src="{{ .Get 0 }}" frameborder="0" allowfullscreen="true"></iframe>
-  {{- end -}}
+  <iframe src="{{ $src }}" frameborder="0" allowfullscreen="true"></iframe>
 </div>

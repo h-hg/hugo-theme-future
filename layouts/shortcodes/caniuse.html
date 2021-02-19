@@ -1,0 +1,25 @@
+{{/* feature [periods] */}}
+
+{{ $feature := "" }}
+{{ $periods := "" }}
+{{ $accessibleColours := "true" }}
+
+{{- if .IsNamedParams -}}
+  {{ $feature = .Get `feature` }}
+  {{ $periods = .Get `periods` }}
+{{- else -}}  
+  {{ $feature = .Get 0 }}
+  {{ $periods = .Get 1 }}
+{{- end -}}
+
+{{- if (eq $periods "") -}}
+  {{ $periods = "current" }}
+{{- end -}}
+
+<div class="caniuse">
+  <div class="ciu_embed"
+       data-feature="{{ $feature }}"
+       data-periods="{{ $periods }}"
+       data-accessible-colours="{{ $accessibleColours }}"
+  >
+</div>

@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $fg-color;
+  background-color: $bg-color;
+  font-family: $global-font-family;
+  font-size: $global-font-size;
+  font-weight: $global-font-weight;
+  line-height: $global-line-height;
+  @media only screen and (max-width : 768px) {
+    font-size: $global-font-size;
+    line-height: $global-font-size;
+  }
+}

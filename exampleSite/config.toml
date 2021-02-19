@@ -23,27 +23,27 @@ themesDir = "../.."
       enable = true
       [[params.profile.social.medium]]
         name = "Github"
-        icon = "fa fa-github"
+        icon = "fab fa-github"
         weight = -1
         url = "https://github.com/XXX/"
       [[params.profile.social.medium]]
         name = "Gitlab"
-        icon = "fa fa-gitlab"
+        icon = "fab fa-gitlab"
         weight = 2
         url = "https://gitlab.com/XXX/"
       [[params.profile.social.medium]]
         name = "Twitter"
-        icon = "fa fa-twitter"
+        icon = "fab fa-twitter"
         weight = 3
         url = "https://twitter.com/XXX/"
       [[params.profile.social.medium]]
         name = "LinkedIn"
-        icon = "fa fa-linkedin"
+        icon = "fab fa-linkedin"
         weight = 4
         url = "https://www.linkedin.com/in/XXX/"
       [[params.profile.social.medium]]
         name = "Medium"
-        icon = "fa fa-medium"
+        icon = "fab fa-medium"
         weight = 5
         url = "https://medium.com/@XXX"
       [[params.profile.social.medium]]
@@ -53,6 +53,11 @@ themesDir = "../.."
         url = "https://myhugosite.com/index.xml"
         rel = "alternate"
         type = "application/rss+xml"
+      [[params.profile.social.medium]]
+        name = "Email"
+        icon = "fa fa-envelope"
+        weight = 7
+        url = "mailto:XX@XX.XX"
   [params.footer]
     since = 2020
     # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
@@ -89,6 +94,8 @@ themesDir = "../.."
         mhchem = true
       [params.posts.math.mathjax]
 
+    [params.posts.caniuse]
+      enable = false
     [params.posts.pseudocode]
       enable = false
     [params.posts.wavedrom]
