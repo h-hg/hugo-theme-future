@@ -3,20 +3,75 @@
  * fg: foreground
  */
 
-// background
-$bg-color: #ffffff !default;
-$bg-dark-1:#cccccc;
-$bg-dark-2:#c0c0c0;
-$bg-dark-3:#999999;
-$bg-dark-4:#808080;
-$bg-dark-5:#666666;
-$bg-dark-6:#333333;
+$white: #fff;
+$black: #000;
+/*
+ * https://en.wikipedia.org/wiki/Shades_of_gray
+ * gray: r = g = b
+ * The higher the value of r (or g, b), the greater the brightness
+ */
+$gray-0: #ffffff;
+$gray-1: #e0e0e0;
+$gray-2: #c0c0c0;
+$gray-3: #a0a0a0;
+$gray-4: #808080;
+$gray-5: #606060;
+$gray-6: #404040;
+$gray-7: #202020;
+$gray-8: #000000;
 
+$blue-0: #ffffff;
+$blue-1: #e0e0ff;
+$blue-0: #c0c0ff;
+$blue-0: #a0a0ff;
+$blue-0: #8080ff;
+$blue-0: #6060ff;
+$blue-0: #4040ff;
+$blue-0: #2020ff;
+$blue-0: #0000ff;
+
+// https://en.wikipedia.org/wiki/Shades_of_blue
+$azure: #007fff;
+$dodger-blue: #1e80ff;
+$light-blue: #add8e6;
+$baby-blue:#89cff0;
+$beau-blue: #bcd4e6;
+$baby-blue-eyes: #a1caf1;
+$little-boy-blue: #6ca0dc;
+$maya-blue: #73c2fb;
+$sky-blue: #87ceeb;
+
+// https://en.wikipedia.org/wiki/Shades_of_pink
+$pink: #ffc0cb;
+$barbie-pink: #da1884;
+$china-pink: #de6fa1;
+$mexican-pink: #e4007c;
+
+// https://en.wikipedia.org/wiki/Shades_of_orange
+$orange: #FF7F00;
+
+// https://en.wikipedia.org/wiki/Shades_of_purple
+$purple: #800080;
+$royal-purple: #7851a9;
+$medium-purple: #9370db;
+
+// https://en.wikipedia.org/wiki/Shades_of_green
+$light-green: #90ee90;
+$mint-green: #98fb98;
+
+// background
+$global-bg-color: $white !default;
 // plain text color
-$fg-color: #161209 !default;
+$global-fg-color: #161209 !default;
 
 // headline text
-$headline-color: $fg-color;
+$headline-color: $global-fg-color;
+
+// header
+$header-bg-color: $gray-1;
+
+// footer
+$footer-bg-color: $gray-1;
 
 // link text
 $link-color: #2d96bd !default;

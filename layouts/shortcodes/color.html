@@ -1,0 +1,38 @@
+{{/*  */}}
+
+{{ $title := "" }}
+
+<table class="color-table">
+  {{ if not (eq $title "") }}
+    <tr class="title">
+      <th colspan="2">{{ $title }}</th>
+    </tr>
+  {{ end }}
+  <tr class="color">
+    <td colspan="2"></td>
+  </tr>
+  <tr class="rgb">
+    <td>RGB</td>
+    <td>{{}}</td>
+  </tr>
+  <tr class="rgb">
+    <td>RGB</td>
+    <td></td>
+  </tr>
+  <tr class="hsv">
+    <td>HSV</td>
+    <td></td>
+  </tr>
+  <tr class="hsl">
+    <td>HSL</td>
+    <td></td>
+  </tr>
+  <tr class="hsi">
+    <td>HSI</td>
+    <td></td>
+  </tr>
+  <tr class="hex">
+    <td>HEX</td>
+    <td></td>
+  </tr>
+</table>

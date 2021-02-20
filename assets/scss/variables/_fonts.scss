@@ -1,7 +1,8 @@
 // Fonts
+$font-windows: "Microsoft YaHei";
 $global-font-family: Merriweather, Georgia, serif;
 $heading-font-family: Lato, Helvetica, sans-serif;
-$code-font-family: 'Source Code Pro', 'Lucida Console', monospace, $global-font-family;
+$code-font-family: 'Source Code Pro', 'Lucida Console', monospace, Consolas, $global-font-family;
 
 $global-font-size: 1.6em;
 $global-font-weight: 300;

@@ -5,7 +5,7 @@
 {{- if .IsNamedParams -}}
   {{ $id = .Get "id" }}
   {{ $p = (.Get `p` | default 1) }}
-  {{- else -}}
+{{- else -}}
   {{ $id = .Get 0 }}
   {{ $p = (.Get 1 | default 1) }}
 {{- end -}}
